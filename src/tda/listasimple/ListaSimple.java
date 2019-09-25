@@ -95,16 +95,27 @@ public class ListaSimple {
     //----Pre-Condicion {| pPosicion <= Longotid(Lista)|}
     public void eliminar(int posicion) {
         if (posicion >= 1 && posicion <= longitud()) {
-            //---- Buscar la posición a eliminar
-            Nodo ONodoAux = primerNodo;
-            int i = 1;
-            while (i < posicion - 1) {
-                ONodoAux = ONodoAux.getSgteNodo(); 
-                i++;
-            }
+            //---- Si la posición es la primera
+            if (longitud() == 1) {
+                primerNodo.setSgteNodo(null);
+                primerNodo.setElemento(null);
+            } else {
+                if (posicion == 1) {
+                    primerNodo = primerNodo.getSgteNodo();
+                } else {
+                    Nodo nodoAntentior = primerNodo;
+                    int i = 1;
+                    while (i < posicion - 1) {
+                        nodoAntentior = nodoAntentior.getSgteNodo();
+                        i++;
+                    }
+                    Nodo nodoSuprimir = nodoAntentior.getSgteNodo();
+                    //---- Eliminar nodo
+                    nodoAntentior.setSgteNodo(nodoSuprimir.getSgteNodo());
+                    nodoSuprimir.setSgteNodo(null);
+                }
 
-            //---- Eliminar elemento
-            ONodoAux.setSgteNodo(ONodoAux.getSgteNodo().getSgteNodo());
+            }
         }
     }
 
@@ -117,7 +128,7 @@ public class ListaSimple {
         } else {
             Nodo ONodoAux = primerNodo;
             int i = 1;
-            while (!ONodoAux.getElemento().equals(elemento) && i <= longitud()) {
+            while (!ONodoAux.getElemento().toString().equals(elemento) && i <= longitud()) {
                 i++;
                 //---- En caso que el SgteNodo se a vacio, es el final de la lista
                 if (ONodoAux.getSgteNodo() == null) {
