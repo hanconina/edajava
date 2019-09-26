@@ -140,5 +140,10 @@ public class ListaSimple {
             return i;
         }
     }
-
+    
+    public void limpiar(){
+        for (int i=longitud();i>=1;i--){
+            eliminar(i);
+        }
+    }
 }
