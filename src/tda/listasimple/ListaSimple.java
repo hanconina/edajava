@@ -146,4 +146,12 @@ public class ListaSimple {
             eliminar(i);
         }
     }
+    
+   public void mostrarIntervalo(int ini, int fin){
+       if (ini <=fin && ini>=1 && ini<=longitud() && fin>= 1 && fin <=longitud()){
+           for (int i=ini;i<=fin;i++){
+               System.out.println(iesimo(i));
+           }
+       }
+   }
 }
