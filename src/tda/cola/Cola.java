@@ -3,14 +3,14 @@ package tda.cola;
 public class Cola {
     private Nodo frente;
     private Nodo ultimo;
-    public static int tamaño;
-    private int n;
+    private int n; // Tamaño de la cola
     
     // CONSTRUCTOR
     public Cola(){
         // inicializar referencia a cabeza y cola 
         frente = null;
         ultimo = null;
+        n=0;
     }
     // Cola vácia
     public boolean esVacia(){
@@ -22,29 +22,24 @@ public class Cola {
     }
     
     public void encolar(Object item){
-        Nodo aux = ultimo;
-        ultimo = new Nodo();
-        ultimo.setItem(item);
-        ultimo.setSiguiente(null);
+        Nodo nuevoNodo = new Nodo(item);
         if (esVacia()){
-            frente = ultimo;
+            frente = nuevoNodo;
+            ultimo = nuevoNodo;
         }else{
-            aux.setSiguiente(ultimo);
+            ultimo.setSiguiente(nuevoNodo);
+            ultimo = nuevoNodo;
         }
         n++;
     }
     // Encolar
-    public Object decolar(){
+    public Object desencolar(){
         if (esVacia()){
-            System.out.println("la cola no tiene elementos");
             return null;
         }else{
             Object itemAux = frente.getItem();
             frente = frente.getSiguiente();
             n--;
-            if (esVacia()){
-                ultimo=null;
-            }
             return itemAux;
         }
     }

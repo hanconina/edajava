@@ -8,10 +8,10 @@ public class AppTestCola {
         cola.encolar(15);
         cola.encolar(21);
         System.out.println(cola.longitud());
-        System.out.println(cola.decolar());
-        System.out.println(cola.decolar());
-        System.out.println(cola.decolar());
-        System.out.println(cola.decolar());
+        System.out.println(cola.desencolar());
+        System.out.println(cola.desencolar());
+        System.out.println(cola.desencolar());
+        System.out.println(cola.desencolar());
         System.out.println(cola.longitud());
     }
     
