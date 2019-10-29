@@ -17,10 +17,10 @@ public class AppQuickSort {
     }
 
     public static void quickSort(int[] a, int primero, int ultimo) {
-        if (ultimo > primero) {
+        if (ultimo > primero) { // Existe un segemento o subarreglo
             int q = particionar(a, primero, ultimo);
-            quickSort(a, primero, q - 1);
-            quickSort(a, q + 1, ultimo);
+            quickSort(a, primero, q - 1); // Ordenar el lado izquierdo
+            quickSort(a, q + 1, ultimo); // ordenar el lado derecho
         }
     }
 

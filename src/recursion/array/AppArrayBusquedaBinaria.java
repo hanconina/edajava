@@ -7,7 +7,7 @@ public class AppArrayBusquedaBinaria {
         int[] array = {22,14,2,4,56,7,2,34,12,4};
         ordenarInsercion(array, array.length);
         mostrarArreglo(array,array.length);
-        System.out.println("Item buscado 22: "+buscarItem(22,array));
+        System.out.println("Item buscado 16: "+buscarItem(16,array));
         mostrarArreglo(array,array.length);
         
     }

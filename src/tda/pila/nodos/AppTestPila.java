@@ -15,5 +15,22 @@ public class AppTestPila {
         System.out.println(pila.desapilar());
         System.out.println(pila.longitud());
     }
+    // 5.	Escriba un algoritmo que permita 
+    // insertar un elemento X al fondo de la pila P.
+    public static void ponerAlFondo(Object x, Pila p){
+        Pila pAux = new Pila();
+        // Vaciar la pila
+        while (!p.esVacia()){
+           Object itemAux = p.desapilar();
+           pAux.apilar(itemAux);
+        }
+        // Apilar el valor de X - elemento que deberia colocar al fondo de 
+        // pila
+        p.apilar(x);
+        while (!pAux.esVacia()){
+           Object itemAux = pAux.desapilar();
+           p.apilar(itemAux);
+        }        
+    }
     
 }
