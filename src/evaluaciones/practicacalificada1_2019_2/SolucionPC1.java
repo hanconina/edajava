@@ -1,4 +1,4 @@
-package practicacalificada1;
+package evaluaciones.practicacalificada1_2019_2;
 
 public class SolucionPC1 {
 

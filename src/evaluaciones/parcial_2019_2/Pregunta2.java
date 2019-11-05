@@ -1,5 +1,6 @@
-package parcial20192;
+package evaluaciones.parcial_2019_2;
 
+import evaluaciones.parcial_2019_2.Articulo;
 import tda.listasimple.ListaSimple;
 
 public class Pregunta2 {

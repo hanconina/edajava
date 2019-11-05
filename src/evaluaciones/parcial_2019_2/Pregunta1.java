@@ -1,4 +1,4 @@
-package parcial20192;
+package evaluaciones.parcial_2019_2;
 
 
 public class Pregunta1 {
