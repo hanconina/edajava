@@ -1,7 +1,5 @@
 package tda.grafo;
 
-import tda.listarecursiva.*;
-
 public class Lista {
 
     // Atributos

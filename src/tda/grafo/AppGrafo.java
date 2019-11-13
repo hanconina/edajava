@@ -27,11 +27,10 @@ public class AppGrafo {
         g.agregarArco(v6, v3);
         g.agregarArco(v4, v1);
         
-        
         g.mostrarGrafo();
-//        g.eliminarArco(v1, v3);
-//        g.eliminarArco(v1, v1);
-//        g.eliminarArco(v3, v4);
+        g.eliminarArco(v1, v3);
+        g.eliminarArco(v1, v1);
+        g.eliminarArco(v3, v4);
         g.eliminarVertice(v1);
         System.out.println("Grafo Resultante...");
         g.mostrarGrafo();
