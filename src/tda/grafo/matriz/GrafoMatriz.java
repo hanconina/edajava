@@ -217,14 +217,14 @@ public class GrafoMatriz {
         }
     }
     
-    // Devuelve la distancia mímina
-    public int distanciaMinima(float distancias[], boolean visitados[]) {
+    // Devuelve el indice con peso minimo del arreglo distancias
+    public int distanciaMinima(float distancias[], boolean conjuntoS[]) {
         // inicializar valor minimo 
         float min = Float.MAX_VALUE;
         int min_index = -1;
 
         for (int v = 0; v < numVertices; v++) {
-            if (visitados[v] == false && distancias[v] <= min) {
+            if (conjuntoS[v] == false && distancias[v] <= min) {
                 min = distancias[v];
                 min_index = v;
             }
@@ -247,42 +247,42 @@ public class GrafoMatriz {
         float distancias[] = new float[numVertices]; 
         // la distancia mas corta de la fuente a i 
 
-        // arbolCaminoCorto[i] será verdadero si el vertice i es incluido en el 
-        // arbol del camino mas corto
-        // or la distancia del camino mas corto de la fuente a i esta finalizado 
-        boolean visitados[] = new boolean[numVertices];
+        // conjuntoS[i] será verdadero si el vertice i es incluido en el  
+        // conjuntoS de caminos mas corto al origen
+        // O la distancia del camino mas corto del vertice fuente a i ya finalizo 
+        boolean conjuntoS[] = new boolean[numVertices];
 
-        // inicializar todas las distancas como infinitas y el arbol de camino mas corto
+        // inicializar todas las distancas como infinitas y el conjuntoS de camino mas corto
         // como falso 
         for (int i = 0; i < numVertices; i++) {
             distancias[i] = Float.MAX_VALUE;
-            visitados[i] = false;
+            conjuntoS[i] = false;
         }
 
         // La distancia del vertice fuente a si mismo siempre es cero
         distancias[verticeFuente] = 0;
 
-        // Enconstrar el camino mas corto para todos los vertices 
+        // Encontrar el camino mas corto para todos los vertices 
         for (int contador = 0; contador < numVertices - 1; contador++) {
             // elija el vertice con la minima distancia del conjunto de vertices 
             // que todavia no hayan sido procesados. 
-            // u es siempre igual al vertice fuente al inicio de la iteracion 
+            // w es siempre igual al vertice fuente al inicio de la iteracion 
             
-            int u = distanciaMinima(distancias, visitados);
+            int w = distanciaMinima(distancias, conjuntoS);
 
-            // Marcar el vertice elegido como procesado 
-            visitados[u] = true;
+            // Marcar el vertice elejido como procesado 
+            conjuntoS[w] = true;
 
             // Actualiza el valor de la distacia de los vértices adyacentes
             // del vértice seleccionado.
             for (int v = 0; v < numVertices; v++) {
                 // Actualice distancias [v] solo si no fue visitado, hay un
-                // arco de u a v, y peso total de la ruta del vertice fuente a
-                // v a través de u es menor que el valor actual de distancias [v]            
-                if (!visitados[v] && matriz[u][v] != null
-                        && distancias[u] != Float.MAX_VALUE 
-                        && distancias[u] + matriz[u][v] < distancias[v]) {
-                    distancias[v] = distancias[u] + matriz[u][v];
+                // arco de w a v, y peso total de la ruta del vertice fuente a
+                // v a través de w es menor que el valor actual de distancias [v]            
+                if (!conjuntoS[v] && matriz[w][v] != null
+                        && distancias[w] != Float.MAX_VALUE 
+                        && distancias[w] + matriz[w][v] < distancias[v]) {
+                    distancias[v] = distancias[w] + matriz[w][v];
                 }
             }
         }

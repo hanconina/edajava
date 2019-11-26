@@ -65,6 +65,25 @@ public class AppGrafoMatriz {
 
         grafo2.mostrarGrafo();
         grafo2.dijkstra(0);
+        
+                System.out.println("Otro Ejemplo: ");
+
+        //fila 0
+        GrafoMatriz grafo3 = new GrafoMatriz(5,5,true);
+        grafo3.agregarArco(0, 1, 10);
+        grafo3.agregarArco(0, 3, 30);
+        grafo3.agregarArco(0, 4, 100);
+
+        grafo3.agregarArco(1, 2, 50);
+        
+        grafo3.agregarArco(2, 4, 10);
+        
+        grafo3.agregarArco(3, 2, 20);
+        grafo3.agregarArco(3, 4, 60);
+
+        grafo3.mostrarGrafo();
+        grafo3.dijkstra(0);
+        
     }
 
 }
