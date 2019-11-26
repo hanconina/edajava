@@ -1,9 +1,9 @@
-package tda.grafo;
+package tda.grafo.sinpesos;
 
 public class Lista {
 
     // Atributos
-    private Object item;
+    private Vertice item;
     private Lista subLista;
 
     // Operaciones
@@ -12,16 +12,16 @@ public class Lista {
         subLista = null;
     }
 
-    public Lista(Object dato, Lista lista) {
+    public Lista(Vertice dato, Lista lista) {
         this.item = dato;
         this.subLista = lista;
     }
 
-    public Object getItem() {
+    public Vertice getItem() {
         return item;
     }
 
-    public void setItem(Object dato) {
+    public void setItem(Vertice dato) {
         this.item = dato;
     }
 
@@ -45,7 +45,7 @@ public class Lista {
     }
 
     // Pre-condición: la posicion debe ser válida
-    public void insertar(Object item, int posicion) {
+    public void insertar(Vertice item, int posicion) {
         // CASO BASE
         if (posicion == 1) {
             // Hacer que la lista actual se convierta en sublista
@@ -56,12 +56,12 @@ public class Lista {
         }
     }
 
-    public int ubicacion(Object dato) {
+    public int ubicacion(Vertice dato) {
         // CASO BASE
         if (esVacia()) {
             return 0;
         } else {
-            if (this.item.equals(dato)) {
+            if (this.item.getNombre().equals(dato.getNombre())) {
                 return 1;
             } else {
                 if (subLista.ubicacion(dato) == 0) {
@@ -73,7 +73,7 @@ public class Lista {
         }
     }
 
-    public Object iesimo(int posicion) {
+    public Vertice iesimo(int posicion) {
         if (posicion == 1) {
             return this.item;
         } else {
@@ -89,8 +89,9 @@ public class Lista {
             this.subLista.eliminar(posicion-1);
         }
     }
-    public void agregar(Object dato){
+    public void agregar(Vertice dato){
         
     }
+    
 
 }

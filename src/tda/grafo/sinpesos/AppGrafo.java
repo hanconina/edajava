@@ -1,0 +1,153 @@
+package tda.grafo.sinpesos;
+
+public class AppGrafo {
+
+    public static void main(String[] args) {
+        System.out.println("Ejemplo 1 de Grafos: ");
+        Grafo g = new Grafo();
+        Vertice v1 = new Vertice("a");
+        Vertice v2 = new Vertice("b");
+        Vertice v3 = new Vertice("c");
+        Vertice v4 = new Vertice("d");
+        Vertice v5 = new Vertice("e");
+        Vertice v6 = new Vertice("f");
+        g.agregarVertice(v1);
+        g.agregarVertice(v2);
+        g.agregarVertice(v3);
+        g.agregarVertice(v4);
+        g.agregarVertice(v5);
+        g.agregarArco(v1, v1);
+        g.agregarArco(v1, v2);
+        g.agregarArco(v1, v2);
+        g.agregarArco(v1, v3);
+        g.agregarArco(v1, v6);
+        g.agregarArco(v3, v1);
+        g.agregarArco(v3, v3);
+        g.agregarArco(v3, v4);
+        g.agregarArco(v4, v1);
+        g.agregarArco(v4, v3);
+        g.agregarArco(v6, v3);
+        g.mostrarGrafo();
+        System.out.println("Recorrido en Profundidad llamado recursivo: ");
+        g.RecorridoEnProfundidad(v1);
+        System.out.println("Marcar todos los vértices como no visitados: ");
+        g.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido en Profundidad utilizando pilas: ");
+        g.RecorridoEnProfundidadPila(v1);
+        g.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido a lo ancho utilizando colas: ");
+        System.out.println();
+        g.RecorridoALoAncho(v1);
+        System.out.println();
+        g.marcarNoVisitados();
+        System.out.println("Eliminar arcos..");
+        g.eliminarArco(v1, v3);
+        g.eliminarArco(v1, v1);
+        g.eliminarArco(v3, v4);
+        g.eliminarVertice(v1);
+        System.out.println("Grafo Resultante...del Ejemplo 1");
+        g.mostrarGrafo();
+        System.out.println("======================================");
+        System.out.println("Grafo dirigido de la Diapositiva... del curso EDA2019");
+        // Grafo de la diapositiva
+        Grafo g1 = new Grafo();
+        Vertice a = new Vertice("a");
+        Vertice b = new Vertice("b");
+        Vertice c = new Vertice("c");
+        Vertice d = new Vertice("d");
+        Vertice e = new Vertice("e");
+        Vertice f = new Vertice("f");
+        // Agregar vertices
+        g1.agregarVertice(a);
+        g1.agregarVertice(b);
+        g1.agregarVertice(c);
+        g1.agregarVertice(d);
+        g1.agregarVertice(e);
+        g1.agregarVertice(f);
+        // Agregar arcos
+        g1.agregarArco(a, b);
+        g1.agregarArco(a, c);
+        g1.agregarArco(a, d);
+        g1.agregarArco(b, a);
+        g1.agregarArco(b, e);
+        g1.agregarArco(c, a);
+        g1.agregarArco(c, f);
+        g1.agregarArco(d, a);
+        g1.agregarArco(d, e);
+        g1.agregarArco(d, f);
+        g1.agregarArco(e, b);
+        g1.agregarArco(e, d);
+        g1.agregarArco(e, f);
+        g1.agregarArco(f, c);
+        g1.agregarArco(f, d);
+        g1.agregarArco(f, e);
+        g1.mostrarGrafo();
+        System.out.println("Recorrido en Profundidad llamado recursivo: ");
+        g1.RecorridoEnProfundidad(a);
+        System.out.println("Marcar todos los vértices como no visitados: ");
+        g1.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido en Profundidad utilizando pilas: ");
+        g1.RecorridoEnProfundidadPila(a);
+        g1.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido a lo ancho utilizando colas: ");
+        System.out.println();
+        g1.RecorridoALoAncho(a);
+        System.out.println();
+        g1.marcarNoVisitados();
+        
+        System.out.println("============EJEMPLO 2========================");
+        System.out.println("Grafo dirigido de Libro");
+        // Grafo de la diapositiva
+        Grafo g2 = new Grafo();
+        Vertice a1 = new Vertice("a");
+        Vertice b1 = new Vertice("b");
+        Vertice c1 = new Vertice("c");
+        Vertice d1 = new Vertice("d");
+        Vertice e1 = new Vertice("e");
+        Vertice f1 = new Vertice("f");
+        Vertice gg1 = new Vertice("g");
+        // Agregar vertices
+        g2.agregarVertice(a1);
+        g2.agregarVertice(b1);
+        g2.agregarVertice(c1);
+        g2.agregarVertice(d1);
+        g2.agregarVertice(e1);
+        g2.agregarVertice(f1);
+        g2.agregarVertice(gg1);
+        // Agregar arcos
+        g2.agregarArco(a1, b1);
+        g2.agregarArco(a1, d1);
+        g2.agregarArco(b1, a1);
+        g2.agregarArco(b1, e1);
+        g2.agregarArco(c1, d1);
+        g2.agregarArco(d1, a1);
+        g2.agregarArco(d1, c1);
+        g2.agregarArco(d1, f1);
+        g2.agregarArco(d1, gg1);
+        g2.agregarArco(e1, b1);
+        g2.agregarArco(e1, f1);
+        g2.agregarArco(f1, d1);
+        g2.agregarArco(f1, e1);
+        g2.agregarArco(gg1, d1);
+        g2.mostrarGrafo();
+        System.out.println("Recorrido en Profundidad llamado recursivo: ");
+        g2.RecorridoEnProfundidad(a1);
+        System.out.println("Marcar todos los vértices como no visitados: ");
+        g2.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido en Profundidad utilizando pilas: ");
+        g2.RecorridoEnProfundidadPila(a1);
+        g2.marcarNoVisitados();
+        System.out.println();
+        System.out.println("Recorrido a lo ancho utilizando colas: ");
+        System.out.println();
+        g2.RecorridoALoAncho(a1);
+        System.out.println();
+        g2.marcarNoVisitados();
+    }
+
+}

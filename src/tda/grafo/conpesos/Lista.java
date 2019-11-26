@@ -3,7 +3,7 @@ package tda.grafo.conpesos;
 public class Lista {
 
     // Atributos
-    private Object item;
+    private Vertice item;
     private Lista subLista;
     private int peso;
 
@@ -14,17 +14,17 @@ public class Lista {
         peso = 0;
     }
 
-    public Lista(Object dato, Lista lista, int peso) {
+    public Lista(Vertice dato, Lista lista, int peso) {
         this.item = dato;
         this.subLista = lista;
         this.peso = peso;
     }
 
-    public Object getItem() {
+    public Vertice getItem() {
         return item;
     }
 
-    public void setItem(Object dato) {
+    public void setItem(Vertice dato) {
         this.item = dato;
     }
 
@@ -57,7 +57,7 @@ public class Lista {
     }
 
     // Pre-condición: la posicion debe ser válida
-    public void insertar(Object item, int posicion, int peso) {
+    public void insertar(Vertice item, int posicion, int peso) {
         // CASO BASE
         if (posicion == 1) {
             // Hacer que la lista actual se convierta en sublista
@@ -70,12 +70,12 @@ public class Lista {
         }
     }
 
-    public int ubicacion(Object dato) {
+    public int ubicacion(Vertice dato) {
         // CASO BASE
         if (esVacia()) {
             return 0;
         } else {
-            if (this.item.equals(dato)) {
+            if (this.item.getNombre().equals(dato.getNombre())) {
                 return 1;
             } else {
                 if (subLista.ubicacion(dato) == 0) {
@@ -87,7 +87,7 @@ public class Lista {
         }
     }
 
-    public Object iesimo(int posicion) {
+    public Vertice iesimo(int posicion) {
         if (posicion == 1) {
             return this.item;
         } else {
@@ -95,7 +95,7 @@ public class Lista {
         }
     }
 
-    public Object iesimoPeso(int posicion) {
+    public int iesimoPeso(int posicion) {
         if (posicion == 1) {
             return this.peso;
         } else {
@@ -112,7 +112,7 @@ public class Lista {
         }
     }
 
-    public void agregar(Object dato, int peso) {
+    public void agregar(Vertice dato, int peso) {
         this.insertar(item, longitud() + 1, peso);
     }
 

@@ -1,9 +1,9 @@
-package tda.arbolbb;
+package tda.arbolbinario;
 
-public class AppArbolBB {
+public class AppArbolBinario {
 
     public static void main(String[] args) {
-        ArbolBB arbol = new ArbolBB();
+        ArbolBinario arbol = new ArbolBinario();
         arbol.agregar("r");
         arbol.agregar("a");
         arbol.agregar("c");
@@ -13,7 +13,7 @@ public class AppArbolBB {
         arbol.agregar("l");
         System.out.println();
         arbol.preOrden();
-        ArbolBB arbol1 = new ArbolBB();
+        ArbolBinario arbol1 = new ArbolBinario();
         arbol1.agregar(36);
         arbol1.agregar(81);
         arbol1.agregar(25);

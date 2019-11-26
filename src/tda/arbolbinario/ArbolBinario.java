@@ -1,19 +1,19 @@
-package tda.arbolbb;
+package tda.arbolbinario;
 
-public class ArbolBB {
+public class ArbolBinario {
 
     // Atributos
     private Object raiz;
-    private ArbolBB subArbolIzq;
-    private ArbolBB subArbolDer;
+    private ArbolBinario subArbolIzq;
+    private ArbolBinario subArbolDer;
 
-    public ArbolBB(Object raiz, ArbolBB subArbolIzq, ArbolBB subArbolDer) {
+    public ArbolBinario(Object raiz, ArbolBinario subArbolIzq, ArbolBinario subArbolDer) {
         this.raiz = raiz;
         this.subArbolIzq = subArbolIzq;
         this.subArbolDer = subArbolDer;
     }
 
-    public ArbolBB() {
+    public ArbolBinario() {
         this.raiz = null;
         this.subArbolIzq = null;
         this.subArbolDer = null;
@@ -27,19 +27,19 @@ public class ArbolBB {
         this.raiz = raiz;
     }
 
-    public ArbolBB getSubArbolIzq() {
+    public ArbolBinario getSubArbolIzq() {
         return subArbolIzq;
     }
 
-    public void setSubArbolIzq(ArbolBB subArbolIzq) {
+    public void setSubArbolIzq(ArbolBinario subArbolIzq) {
         this.subArbolIzq = subArbolIzq;
     }
 
-    public ArbolBB getSubArbolDer() {
+    public ArbolBinario getSubArbolDer() {
         return subArbolDer;
     }
 
-    public void setSubArbolDer(ArbolBB subArbolDer) {
+    public void setSubArbolDer(ArbolBinario subArbolDer) {
         this.subArbolDer = subArbolDer;
     }
 
@@ -52,21 +52,7 @@ public class ArbolBB {
             raiz = elemento;
         } else { // El arbol tiene elementos
             // Verificar si el valor esta a la izaquierdo
-            if (elemento.toString().compareTo(raiz.toString()) < 0) {
-                // El elemento debe agregarse en el arbol izquierdo
-                if (subArbolIzq == null) {
-                    subArbolIzq = new ArbolBB(elemento, null, null);
-                } else {
-                    subArbolIzq.agregar(elemento);
-                }
-            } else { // El elemento debe agregarse en el subarbol derecho
-                // Verificar si no hay arbol derecho
-                if (subArbolDer == null) {
-                    subArbolDer = new ArbolBB(elemento, null, null);
-                } else {
-                    subArbolDer.agregar(elemento);
-                }
-            }
+            
         }
     }
 
