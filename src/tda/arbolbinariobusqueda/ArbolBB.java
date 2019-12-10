@@ -131,6 +131,18 @@ public class ArbolBB<T extends Comparable> {
         }
     }
 
+    public T maximo() {
+        if (estaVacio()) {
+            return null;
+        } else {
+            if (subArbolDer == null) {
+                return raiz;
+            } else {
+                return this.subArbolDer.minimo();
+            }
+        }
+    }
+
     public void preOrden() {
         if (!estaVacio()) {
             // Procesar la raiz
@@ -145,7 +157,7 @@ public class ArbolBB<T extends Comparable> {
             }
         }
     }
-    
+
     // SOLUCION Pregunta 2 de la practica calificada 2.
     public int sumaDeracha() {
         if (estaVacio()) {
@@ -168,20 +180,71 @@ public class ArbolBB<T extends Comparable> {
             }
         }
     }
-    public int sumaNodosHoja(){
-        if (estaVacio()){
+
+    public int sumaNodosHoja() {
+        if (estaVacio()) {
             return 0;
-        }else{
-            if (subArbolIzq==null && subArbolDer==null){
+        } else {
+            if (subArbolIzq == null && subArbolDer == null) {
                 return Integer.parseInt(raiz.toString());
-            }else{
-                if (subArbolIzq!=null && subArbolDer==null){
+            } else {
+                if (subArbolIzq != null && subArbolDer == null) {
                     return subArbolIzq.sumaNodosHoja();
-                }else{
-                    if (subArbolIzq==null && subArbolDer!=null){
+                } else {
+                    if (subArbolIzq == null && subArbolDer != null) {
                         return subArbolDer.sumaNodosHoja();
-                    }else{
+                    } else {
                         return subArbolIzq.sumaNodosHoja() + subArbolDer.sumaNodosHoja();
+                    }
+                }
+            }
+        }
+    }
+
+    // Método para determinar si un elemento es un nodo hijo o no
+    public boolean esHijo(T elemento) {
+        if (elemento.compareTo(raiz) < 0) {
+            if (subArbolIzq != null) {
+                if (subArbolIzq.raiz.equals(elemento)) {
+                    return true;
+                } else {
+                    return subArbolIzq.esHijo(elemento);
+                }
+            } else {
+                return false;
+            }
+        } else {
+            if (elemento.compareTo(raiz) > 0) {
+                if (subArbolDer != null) {
+                    if (subArbolDer.raiz.equals(elemento)) {
+                        return true;
+                    } else {
+                        return subArbolDer.esHijo(elemento);
+                    }
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
+    // Hallar el nivel de un arbol
+
+    public int nivel(T elemento) {
+        if (estaVacio()) {
+            return -1;
+        } else {
+            // Verificar si es la raiz
+            if (raiz.equals(elemento)) {
+                return 0;
+            } else {
+                if (subArbolIzq != null) {
+                    return 1 + subArbolIzq.nivel(elemento);
+                } else {
+                    if (subArbolDer != null) {
+                        return 1 + subArbolDer.nivel(elemento);
+                    } else {
+                        return -1;
                     }
                 }
             }

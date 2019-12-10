@@ -83,6 +83,7 @@ public class AppGrafoMatriz {
 
         grafo3.mostrarGrafo();
         grafo3.dijkstra(0);
+        grafo3.adyacentesDelPrimerPredecesor(2);
         
     }
 

@@ -103,6 +103,22 @@ public class GrafoMatriz {
         return arcosSalida;
     }
 
+    public int numTriangulos() {
+
+        int n = 0;
+        if (numVertices > 2) {
+            for (int i = 0; i < numVertices - 2; i++) {
+                if ((matriz[i][i + 1] != null || matriz[i + 1][i] != null)
+                        && (matriz[i + 1][i + 2] != null || matriz[i + 2][i + 1] != null)
+                        && (matriz[i][i + 2] != null || matriz[i + 2][i] != null)) {
+                    n++;
+                }
+
+            }
+        }
+        return n;
+    }
+
     public int recuperarGrado(int i) {
         int grado = 0;
         if (dirigido) {
@@ -216,7 +232,7 @@ public class GrafoMatriz {
             }
         }
     }
-    
+
     // Devuelve el indice con peso minimo del arreglo distancias
     public int distanciaMinima(float distancias[], boolean conjuntoS[]) {
         // inicializar valor minimo 
@@ -244,7 +260,7 @@ public class GrafoMatriz {
     // la fuente utilizando una matriz de adyacencia
     public void dijkstra(int verticeFuente) {
         // El arreglo resultante de las distancias mas cortas hacia todos los vertices
-        float distancias[] = new float[numVertices]; 
+        float distancias[] = new float[numVertices];
         // la distancia mas corta de la fuente a i 
 
         // conjuntoS[i] será verdadero si el vertice i es incluido en el  
@@ -267,7 +283,7 @@ public class GrafoMatriz {
             // elija el vertice con la minima distancia del conjunto de vertices 
             // que todavia no hayan sido procesados. 
             // w es siempre igual al vertice fuente al inicio de la iteracion 
-            
+
             int w = distanciaMinima(distancias, conjuntoS);
 
             // Marcar el vertice elejido como procesado 
@@ -280,7 +296,7 @@ public class GrafoMatriz {
                 // arco de w a v, y peso total de la ruta del vertice fuente a
                 // v a través de w es menor que el valor actual de distancias [v]            
                 if (!conjuntoS[v] && matriz[w][v] != null
-                        && distancias[w] != Float.MAX_VALUE 
+                        && distancias[w] != Float.MAX_VALUE
                         && distancias[w] + matriz[w][v] < distancias[v]) {
                     distancias[v] = distancias[w] + matriz[w][v];
                 }
@@ -289,6 +305,26 @@ public class GrafoMatriz {
 
         // imprimir el arreglo construido
         this.mostrarDistancias(distancias);
+    }
+
+    public void adyacentesDelPrimerPredecesor(int vertice) {
+        int primerPredecesor = -1;
+        for (int i = 0; i < matriz.length; i++) {
+            if (matriz[i][vertice] != null) {
+                primerPredecesor = i;
+                break;
+            }
+        }
+        if (primerPredecesor >= 0) {
+            for (int i = 0; i < matriz.length; i++) {
+                if (matriz[primerPredecesor][i] != null && i !=vertice) {
+                    System.out.print(i + "\t");
+                }
+            }
+            System.out.println();
+        }else{
+            System.out.println("No tiene predecesores");
+        }
     }
 
 }
